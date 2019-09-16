@@ -1,0 +1,11 @@
+cho database php2_lesson1
+tạo bảng hotels
+
+id int pk ai
+name varchar 255
+address varchar 255
+logo varchar 255
+owner varchar 255 (chủ sở hữu)
+
+tiến hành tạo form để thêm khách sạn (hotel_form.php)
+lưu khách sạn vào csdl (hotel_submit.php)
