@@ -17,7 +17,19 @@ class BaseModel
 	}
 
 	public function delete($id){
+		try{
 
+			$sql = "delete from " . $this->table 
+					. " where id = $id";
+			// var_dump($sql);die;
+			$stmt = $this->conn->prepare($sql);
+			$stmt->execute();
+
+			return true;
+		}catch(Exception $ex){
+			var_dump($ex->getMessage());
+			return false;
+		} 
 	}
 }
 
@@ -35,7 +47,7 @@ $hotelDao = new Hotel();
 $hotelDao->delete(1);
 $hotels = $hotelDao->getAll();
 
-var_dump($users);
+var_dump($hotels);
 
 
 
