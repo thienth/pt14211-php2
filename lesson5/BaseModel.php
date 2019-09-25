@@ -61,6 +61,7 @@ class BaseModel
  	public static function where($arr){
  		$model = new static();
  		$model->queryBuilder = "select * from $model->tableName where $arr[0] $arr[1] '$arr[2]'";
+
  		return $model;
  	}
  	public function andWhere($arr){
@@ -72,9 +73,11 @@ class BaseModel
  		return $this;
  	}
  	public function first(){
+
  		$stmt = $this->conn->prepare($this->queryBuilder);
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($this));
+		
 		if(count($result) > 0){
 			return $result[0];
 		}else{
