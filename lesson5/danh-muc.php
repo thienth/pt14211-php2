@@ -19,6 +19,9 @@ if($keyword === null){
 		<tr>
 			<th>ID</th>
 			<th>Name</th>
+			<th>
+				<a href="" title="">Tạo mới</a>
+			</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,6 +29,10 @@ if($keyword === null){
  		<tr>
 			<td><?php echo $value->id ?></td>
 			<td><?php echo $value->cate_name ?></td>
+			<td>
+				
+				<a href="delete.php?id=<?php echo $value->id ?>" title="">Xóa</a>
+			</td>
 		</tr>
  		<?php endforeach ?>
 		

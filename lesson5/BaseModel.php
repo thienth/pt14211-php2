@@ -64,6 +64,15 @@ class BaseModel
 
  		return $model;
  	}
+
+ 	public static function destroy($id){
+ 		$model = new static();
+ 		$model->queryBuilder = "delete from $model->tableName
+ 								where id = $id";
+
+		return $model->execute();
+	}
+
  	public function andWhere($arr){
  		$this->queryBuilder .= " and $arr[0] $arr[1] '$arr[2]'";
  		return $this;
@@ -77,7 +86,7 @@ class BaseModel
  		$stmt = $this->conn->prepare($this->queryBuilder);
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($this));
-		
+
 		if(count($result) > 0){
 			return $result[0];
 		}else{
