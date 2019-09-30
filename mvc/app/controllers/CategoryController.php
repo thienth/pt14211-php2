@@ -1,13 +1,12 @@
 <?php 
 
-/**
- * 
- */
+require_once './app/models/Product.php';
 class CategoryController
 {
 	
 	public function index(){
-		echo "danh sách danh mục";
+		$products = Product::all();
+		include_once './app/views/danh-muc/list.php';
 	}
 }
 

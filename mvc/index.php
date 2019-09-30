@@ -23,6 +23,11 @@ switch ($url) {
 		$ctr = new HomeController();
 		$ctr->detail();
 		break;
+
+	case 'danh-sach-user':
+		$ctr = new UserController();
+		$ctr->index();
+		break;
 	default:
 		# code...
 		break;
