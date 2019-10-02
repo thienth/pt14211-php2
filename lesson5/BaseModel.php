@@ -94,6 +94,7 @@ class BaseModel
 		}
  	}
  	public function get(){
+ 		
  		$stmt = $this->conn->prepare($this->queryBuilder);
 		$stmt->execute();
 		$result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($this));

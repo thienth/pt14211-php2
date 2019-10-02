@@ -48,6 +48,31 @@ class BaseModel
 		$model->queryBuilder = $sqlQuery;
 		return $model;
 	}
+
+	public function orderBy($col, $asc = true){
+		$this->queryBuilder .= " order by $col";
+		$this->queryBuilder .= $asc == true ? " asc " : " desc ";
+		return $this;
+	}
+
+	public static function sttOrderBy($col, $asc = true){
+		$model =  new static();
+		$model->queryBuilder = "select * from $model->tableName order by $col";
+		$model->queryBuilder .= $asc == true ? " asc " : " desc ";
+		
+		return $model;
+	}
+
+	public function limit($take, $skip = false){
+		$this->queryBuilder .= " limit $take";
+		if($skip != false){
+			$this->queryBuilder .= ", $skip";
+		}
+
+		return $this;
+	}
+
+
 	public function execute(){
 		$stmt = $this->conn->prepare($this->queryBuilder);
 		return $stmt->execute();

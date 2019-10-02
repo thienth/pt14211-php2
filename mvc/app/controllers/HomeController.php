@@ -6,7 +6,10 @@ class HomeController
 	
 	public function index(){
 		
-		include_once './views/home/homepage.php';
+		$menus = Category::where(['show_menu', '=', 1])->get();
+		$products = Product::sttOrderBy('id', false)->limit(8)->get();
+		// hiển thị giao diện ở cái file theo đường dẫn này
+		include_once './app/views/home/homepage.php';
 	}
 
 	public function contact(){
