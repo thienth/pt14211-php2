@@ -1,11 +1,12 @@
 <?php 
 require_once './app/models/Category.php';
+require_once './app/models/Product.php';
 class HomeController
 {
 	
 	public function index(){
-		$cates = Category::all();
-		var_dump($cates);die();
+		
+		include_once './views/home/homepage.php';
 	}
 
 	public function contact(){

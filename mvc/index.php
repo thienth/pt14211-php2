@@ -1,5 +1,9 @@
 <?php 
+session_start();
+require_once './commons/utils.php';
+require_once './commons/helpers.php';
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
+
 
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/CategoryController.php';
