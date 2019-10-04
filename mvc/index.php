@@ -38,6 +38,16 @@ switch ($url) {
 		$ctr = new CartController();
 		$ctr->add2Cart();
 		break;
+
+	case 'chi-tiet-gio-hang':
+		$ctr = new CartController();
+		$ctr->showCart();
+		break;
+
+	case 'xoa-item-gio-hang':
+		$ctr = new CartController();
+		$ctr->deleteItemInCart();
+		break;
 	default:
 		# code...
 		break;

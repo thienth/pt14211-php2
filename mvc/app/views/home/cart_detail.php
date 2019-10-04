@@ -37,23 +37,25 @@
 						<th>ID</th>
 						<th>Name</th>
 						<th>Image</th>
-						<th>Cate name</th>
 						<th>Price</th>
+						<th>Quantity</th>
+						<th>Total Price</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($products as $pro): ?>
+					<?php foreach ($cart as $pro): ?>
 					<tr>
-						<td><?php echo $pro->id ?></td>
-						<td><?php echo $pro->name ?></td>
+						<td><?php echo $pro['id'] ?></td>
+						<td><?php echo $pro['name'] ?></td>
 						<td>
-							<img src="<?php echo $pro->image ?>" width="100">
+							<img src="<?php echo $pro['image'] ?>" width="100">
 						</td>
-						<td><?php echo $pro->getCateName(); ?></td>
-						<td><?php echo $pro->price ?></td>
+						<td><?php echo $pro['price'] ?></td>
+						<td><?php echo $pro['quantity'] ?></td>
+						<td><?php echo $pro['quantity']*$pro['price'] ?></td>
 						<td>
-							<a href="<?php echo BASE_URL . 'gio-hang?id=' . $pro->id ?>" class="btn btn-warning btn-sm">Thêm giỏ hàng</a>
+							<a href="<?php echo BASE_URL . 'xoa-item-gio-hang?id=' . $pro['id'] ?>" class="btn btn-warning btn-sm">Xóa</a>
 						</td>
 					</tr>
 					<?php endforeach ?>

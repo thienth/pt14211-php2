@@ -43,6 +43,37 @@ class CartController
 		header('location: ' . BASE_URL);
 		die;
 	}
+
+	public function showCart(){
+		$cart = isset($_SESSION[CART]) == true ? $_SESSION[CART] : [];
+		$menus = Category::where(['show_menu', '=', 1])->get();
+		include_once './app/views/home/cart_detail.php';
+	}
+
+	public function deleteItemInCart(){
+		$proId = isset($_GET['id']) == true ? $_GET['id'] : null;
+		$cart = isset($_SESSION[CART]) == true ? $_SESSION[CART] : [];
+		$index = -1;
+		for ($i=0; $i < count($cart); $i++) { 
+			if($cart[$i]['id'] = $proId){
+				$index = $i;
+				break;
+			}
+		}
+
+		if($index != -1){
+			array_splice($cart, $index, 1);
+		}
+
+		$_SESSION[CART] = $cart;
+		if(count($cart) == 0){
+			header('location: '. BASE_URL);
+			die;
+		}else{
+			header('location: '. BASE_URL . 'chi-tiet-gio-hang');
+			die;
+		}
+	}
 }
 
  ?>
