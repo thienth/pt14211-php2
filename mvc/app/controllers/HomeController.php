@@ -8,6 +8,7 @@ class HomeController
 		
 		$menus = Category::where(['show_menu', '=', 1])->get();
 		$products = Product::sttOrderBy('id', false)->limit(8)->get();
+		// dd($products);
 		// hiển thị giao diện ở cái file theo đường dẫn này
 		include_once './app/views/home/homepage.php';
 	}

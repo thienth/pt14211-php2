@@ -17,13 +17,37 @@
 				  <li class="nav-item">
 				    <a class="nav-link" 
 				    	href="<?= BASE_URL . "danh-muc?id=" . $menu->id ?>">
-				    	<?php echo $menu->cate_name ?>
+				    	<?php echo $menu->cate_name ?> (<?php echo $menu->countTotalProductBelong(); ?>)
 				    </a>
 				  </li>
 				<?php endforeach ?>
 			</ul>
 		</header>
 		<div class="row" id="content">
+			<table class="table table-stripped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Image</th>
+						<th>Cate name</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($products as $pro): ?>
+					<tr>
+						<td><?php echo $pro->id ?></td>
+						<td><?php echo $pro->name ?></td>
+						<td>
+							<img src="<?php echo $pro->image ?>" width="100">
+						</td>
+						<td><?php echo $pro->getCateName(); ?></td>
+						<td><?php echo $pro->price ?></td>
+					</tr>
+					<?php endforeach ?>
+				</tbody>
+			</table>
 			
 		</div>
 
