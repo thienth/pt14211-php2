@@ -53,15 +53,17 @@ class CartController
 	public function deleteItemInCart(){
 		$proId = isset($_GET['id']) == true ? $_GET['id'] : null;
 		$cart = isset($_SESSION[CART]) == true ? $_SESSION[CART] : [];
-		$index = -1;
+		$index = false;
 		for ($i=0; $i < count($cart); $i++) { 
-			if($cart[$i]['id'] = $proId){
+			if($cart[$i]['id'] == $proId){
 				$index = $i;
 				break;
 			}
 		}
+		// var_dump($index);
+		// dd($cart);
 
-		if($index != -1){
+		if($index !== false){
 			array_splice($cart, $index, 1);
 		}
 
