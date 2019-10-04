@@ -20,7 +20,11 @@
 				    	<?php echo $menu->cate_name ?> (<?php echo $menu->countTotalProductBelong(); ?>)
 				    </a>
 				  </li>
+				  
 				<?php endforeach ?>
+				<li>
+				  	<a class="nav-link" href="<?php echo BASE_URL . '/chi-tiet-gio-hang' ?>" title="">Cart (<?php echo getTotalProductInCart(); ?>)</a>
+				 </li>
 			</ul>
 		</header>
 		<div class="row" id="content">
@@ -32,6 +36,7 @@
 						<th>Image</th>
 						<th>Cate name</th>
 						<th>Price</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -44,6 +49,9 @@
 						</td>
 						<td><?php echo $pro->getCateName(); ?></td>
 						<td><?php echo $pro->price ?></td>
+						<td>
+							<a href="<?php echo BASE_URL . 'gio-hang?id=' . $pro->id ?>" class="btn btn-warning btn-sm">Thêm giỏ hàng</a>
+						</td>
 					</tr>
 					<?php endforeach ?>
 				</tbody>

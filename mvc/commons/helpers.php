@@ -4,6 +4,17 @@ function dd($value){
 	die;
 }
 
+function getTotalProductInCart(){
+	// dd($_SESSION[CART]);
+	$totalProduct = 0;
+	if(isset($_SESSION[CART]) && count($_SESSION[CART]) > 0){
+		$cart = $_SESSION[CART];
+		foreach ($cart as $item) {
+			$totalProduct += $item['quantity'];
+		}
+	}
+	return $totalProduct;
+}
 
 
 

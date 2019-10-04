@@ -7,6 +7,7 @@ $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/CategoryController.php';
+require_once './app/controllers/CartController.php';
 switch ($url) {
 	case '/':
 		$ctr = new HomeController();
@@ -31,6 +32,11 @@ switch ($url) {
 	case 'danh-sach-user':
 		$ctr = new UserController();
 		$ctr->index();
+		break;
+
+	case 'gio-hang':
+		$ctr = new CartController();
+		$ctr->add2Cart();
 		break;
 	default:
 		# code...
