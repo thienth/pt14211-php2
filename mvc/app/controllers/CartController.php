@@ -60,8 +60,6 @@ class CartController
 				break;
 			}
 		}
-		// var_dump($index);
-		// dd($cart);
 
 		if($index !== false){
 			array_splice($cart, $index, 1);
