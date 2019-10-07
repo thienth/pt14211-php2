@@ -48,6 +48,10 @@ class CartController
 
 	public function showCart(){
 		$cart = isset($_SESSION[CART]) == true ? $_SESSION[CART] : [];
+		if(count($cart) <= 0){
+			header('location: '.BASE_URL);
+			die;
+		}
 		$menus = Category::where(['show_menu', '=', 1])->get();
 		include_once './app/views/home/cart_detail.php';
 	}
