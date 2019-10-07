@@ -16,6 +16,17 @@ function getTotalProductInCart(){
 	return $totalProduct;
 }
 
+function getCartTotalPrice(){
+	$totalPrice = 0;
+	if(isset($_SESSION[CART]) && count($_SESSION[CART]) > 0){
+		$cart = $_SESSION[CART];
+		foreach ($cart as $item) {
+			$totalPrice += $item['quantity']*$item['price'];
+		}
+	}
+	return $totalPrice;
+}
+
 
 
  ?>
