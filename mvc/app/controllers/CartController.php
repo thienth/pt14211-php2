@@ -1,6 +1,8 @@
 <?php 
 
 require_once './app/models/Product.php';
+require_once './app/models/Invoice.php';
+require_once './app/models/InvoiceDetail.php';
 class CartController
 {
 	
@@ -73,6 +75,43 @@ class CartController
 			header('location: '. BASE_URL . 'chi-tiet-gio-hang');
 			die;
 		}
+	}
+
+	public function checkout(){
+		// lấy data từ form gửi lên
+		$customer_name = isset($_POST['customer_name']) ? $_POST['customer_name'] : "";
+		$customer_phone_number = isset($_POST['customer_phone_number']) ? $_POST['customer_phone_number'] : "";
+		$customer_email = isset($_POST['email']) ? $_POST['email'] : "";
+		$customer_address = isset($_POST['customer_address']) ? $_POST['customer_address'] : "";
+		$payment_method = isset($_POST['payment_method']) ? $_POST['payment_method'] : "";
+		$total_price = getCartTotalPrice();
+
+		// chuẩn bị data để insert
+		$data = compact('customer_name', 'customer_phone_number', 'customer_email', 'customer_address', 'payment_method', 'total_price');
+
+		// lưu thông tin vào bảng invoices
+		$invoice = new Invoice();
+		$invoice->insert($data);
+		$newInvoice = Invoice::sttOrderBy('id', false)->limit(1)->first();
+
+		// lưu thông tin vào bảng invoice_detail
+		$cart = $_SESSION[CART];
+		foreach ($cart as $pro) {
+			$data = [
+				'invoice_id' => $newInvoice->id,
+				'product_id' => $pro['id'],
+				'quantity' => $pro['quantity'],
+				'unit_price' => $pro['price']
+			];
+
+			$model = new InvoiceDetail();
+			$model->insert($data);
+		}
+
+		unset($_SESSION[CART]);
+		header('location: ' . BASE_URL . "?msg=Đặt sản phẩm thành công!" );
+		die;
+		
 	}
 }
 

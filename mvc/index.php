@@ -48,6 +48,11 @@ switch ($url) {
 		$ctr = new CartController();
 		$ctr->deleteItemInCart();
 		break;
+
+	case 'check-out':
+		$ctr = new CartController();
+		$ctr->checkout();
+		break;
 	default:
 		# code...
 		break;

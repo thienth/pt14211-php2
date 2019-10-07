@@ -97,8 +97,17 @@
 						</div>
 						<div class="form-group">
 							<label>Payment method</label>
-							<input type="radio" checked name="payment_method" value="1" placeholder=""> COD
-							<input type="radio" name="payment_method" value="2" placeholder=""> Online payment
+
+							<?php foreach (getPaymentMethod() as $key => $value): ?>
+
+								<?php 
+									$checked = $key == 1 ? "checked" : "";
+								 ?>
+								<input type="radio" 
+									<?php echo $checked ?>
+								name="payment_method" value="<?php echo $key ?>" placeholder=""> <?php echo $value ?>
+							<?php endforeach ?>
+							
 						</div>
 						<div class="text-center">
 							<button class="btn btn-info btn-sm" type="submit">Checkout</button>

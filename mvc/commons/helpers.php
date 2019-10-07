@@ -27,6 +27,13 @@ function getCartTotalPrice(){
 	return $totalPrice;
 }
 
+function getPaymentMethod(){
+	return [
+		1 => "COD",
+		2 => "Online Payment",
+		3 => "Visa/Master Card"
+	];
+}
 
 
  ?>
