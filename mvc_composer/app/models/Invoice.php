@@ -1,6 +1,5 @@
 <?php 
-require_once './app/models/BaseModel.php';
-require_once './app/models/Product.php';
+namespace App\Models;
 
 class Invoice extends BaseModel
 {

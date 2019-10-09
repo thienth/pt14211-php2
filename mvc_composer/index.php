@@ -2,14 +2,28 @@
 session_start();
 require_once './commons/utils.php';
 require_once './commons/helpers.php';
+
+require_once './app/controllers/CartController.php';
+require_once './app/controllers/HomeController.php';
+require_once './app/controllers/CategoryController.php';
+
+require_once './app/models/BaseModel.php';
+require_once './app/models/Category.php';
+require_once './app/models/Invoice.php';
+require_once './app/models/InvoiceDetail.php';
+require_once './app/models/Product.php';
+require_once './app/models/User.php';
+
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
 
 
-require_once './app/controllers/HomeController.php';
-require_once './app/controllers/CategoryController.php';
-require_once './app/controllers/CartController.php';
+use App\Controllers\HomeController;
+use App\Controllers\CartController;
+use App\Controllers\CategoryController;
+
 switch ($url) {
 	case '/':
+		
 		$ctr = new HomeController();
 		$ctr->index();
 		break;

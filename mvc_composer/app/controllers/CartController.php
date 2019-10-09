@@ -1,8 +1,9 @@
 <?php 
+namespace App\Controllers;
+use App\Models\Product;
+use App\Models\Invoice;
+use App\Models\InvoiceDetail;
 
-require_once './app/models/Product.php';
-require_once './app/models/Invoice.php';
-require_once './app/models/InvoiceDetail.php';
 class CartController
 {
 	

@@ -1,13 +1,14 @@
-<?php 
-require_once './app/models/Category.php';
-require_once './app/models/Product.php';
+<?php
+namespace App\Controllers; 
+use App\Models\Category;
+use App\Models\Product;
 class HomeController
 {
 	
 	public function index(){
-		
 		$menus = Category::where(['show_menu', '=', 1])->get();
 		$products = Product::sttOrderBy('id', false)->limit(8)->get();
+		
 		// dd($products);
 		// hiển thị giao diện ở cái file theo đường dẫn này
 		include_once './app/views/home/homepage.php';
