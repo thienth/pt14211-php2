@@ -3,23 +3,14 @@ session_start();
 require_once './commons/utils.php';
 require_once './commons/helpers.php';
 
-require_once './app/controllers/CartController.php';
-require_once './app/controllers/HomeController.php';
-require_once './app/controllers/CategoryController.php';
-
-require_once './app/models/BaseModel.php';
-require_once './app/models/Category.php';
-require_once './app/models/Invoice.php';
-require_once './app/models/InvoiceDetail.php';
-require_once './app/models/Product.php';
-require_once './app/models/User.php';
+require_once './vendor/autoload.php';
 
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
-
 
 use App\Controllers\HomeController;
 use App\Controllers\CartController;
 use App\Controllers\CategoryController;
+use App\Controllers\ProductController;
 
 switch ($url) {
 	case '/':
@@ -46,6 +37,8 @@ switch ($url) {
 		break;
 	case 'admin/products':
 		// hiển thị danh sách sản phẩm
+		$ctr = new ProductController();
+		$ctr->index();
 		break;
 	case 'admin/products/add':
 		// màn hình thêm sản phẩm
