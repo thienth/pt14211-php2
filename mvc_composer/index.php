@@ -18,6 +18,11 @@ switch ($url) {
 		$ctr = new HomeController();
 		$ctr->index();
 		break;
+	case 'dump-product':
+		// sinh ra dump data cho bang product
+		$ctr = new ProductController();
+		$ctr->dumpData();
+		break;
 	case 'login':
 		// màn hình form login bao gồm:
 		// email
