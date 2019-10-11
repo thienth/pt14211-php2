@@ -1,0 +1,19 @@
+Sử dụng mô hình mvc để thực hiện các nhiệm vụ sau:
+1. Hiển thị danh sách các sản phẩm và danh mục của sản phẩm trong csdl kaopiz
+2. Hiển thị chi tiết sản phẩm 
+3. Thực hiện đăng nhập để truy cập màn hình quản trị
+4. Trang chủ của màn hình quản trị yêu cầu hiển thị:
+	- Tổng số lượng sản phẩm
+	- Tổng số lượng danh mục
+	- Tổng số lượng user
+	- Có các link để truy cập vào các màn hình quản lý 3 đối tượng trên (tham khảo theme adminlte)
+5. Hiển thị danh sách sản phẩm trong phần quản trị (tham khảo phần table của adminlte)
+6. Hiển thị danh sách danh mục trong phần quản trị
+7. Thực hiện thêm/sửa/xóa danh mục, sản phẩm
+
+*** Tiêu chí chấm
++ Đầy đủ các chức năng yêu cầu ở trên: 7 điểm
++ Có thực hiện validate dữ liệu tại các màn hình form: 1.5 điểm
+điểm
++ Thực hiện clean code, comment đầy đủ: 0.5 điểm
++ Giao diện đẹp, dễ nhìn: 1 điểm
