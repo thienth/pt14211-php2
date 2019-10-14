@@ -1,17 +1,12 @@
 {
-    "name": "ginv2/pt14211_mvc",
+    "name": "thanhnv1/mvc",
     "type": "project",
     "authors": [
         {
-            "name": "thienth32",
-            "email": "thienth32@gmail.com"
+            "name": "thanh1vs1000",
+            "email": "thanhgamerkang@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "App\\": "app/"
-        }
-    },
     "require": {
         "fzaninotto/faker": "^1.8",
         "phpmailer/phpmailer": "^6.1"
