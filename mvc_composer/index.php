@@ -125,6 +125,16 @@ switch ($url) {
 		$ctr = new CartController();
 		$ctr->checkout();
 		break;
+
+	case 'mail-form':
+		$ctr = new HomeController();
+		$ctr->mailForm();
+		break;
+
+	case 'submit-mail':
+		$ctr = new HomeController();
+		$ctr->sendMail();
+		break;
 	default:
 		# code...
 		break;
