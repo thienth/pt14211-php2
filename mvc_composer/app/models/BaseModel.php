@@ -6,7 +6,7 @@ class BaseModel
 	
 	function __construct()
 	{
-		$this->conn = new PDO('mysql:host=127.0.0.1;dbname=kaopiz;charset=utf8', 'root', '123456');
+		$this->conn = new PDO('mysql:host=127.0.0.1;dbname=kaoqiz;charset=utf8', 'root', '');
 	}
 	public function insert($arr){
 		$this->queryBuilder = "insert into $this->tableName ";
