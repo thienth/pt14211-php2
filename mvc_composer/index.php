@@ -11,10 +11,8 @@ use App\Controllers\HomeController;
 use App\Controllers\CartController;
 use App\Controllers\CategoryController;
 use App\Controllers\ProductController;
-
 switch ($url) {
 	case '/':
-		
 		$ctr = new HomeController();
 		$ctr->index();
 		break;
