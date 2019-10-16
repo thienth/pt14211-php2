@@ -1,7 +1,7 @@
 <?php 
 namespace Models;
-
-class Category extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+class Category extends Model
 {
 	
 	public $tableName = "categories";

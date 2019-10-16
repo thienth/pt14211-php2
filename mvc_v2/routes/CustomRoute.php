@@ -14,28 +14,17 @@ class CustomRoute
 		$router->filter('auth', function(){  
 		    if(!isset($_SESSION['user'])) 
 		    {
-		        header('Location: http://localhost/mvc_v2');
-		        
+		        header('location: http://localhost/mvc_v2');
 		        return false;
 		    }
 		});
 
-		$router->get('/', ['Controllers\HomeController', "index"]);
-		$router->get('/demo-insert', ['Controllers\HomeController', "demo"]);
-		$router->get('/demo-update', ['Controllers\HomeController', "demo2"]);
-		$router->get('/login', ['Controllers\HomeController', "loginForm"]);
-		$router->post('/login', ['Controllers\HomeController', "postLogin"]);
+		// url trang chủ
+		$router->get("/", ["Controllers\HomeController", "index"]);
 
-		$router->get('/logout', ['Controllers\HomeController', "logout"]);
+		$router->get("remove-product", ["Controllers\ProductController", "remove"]);
 
-		$router->get('/detail/{id}', ['Controllers\HomeController', "productDetail"]);
-
-		$router->group(['before' => 'auth'], function($router){
-			// tất cả các request nằm trong group này thì cần phải login
-			$router->get('/remove/{id}', ["Controllers\ProductController", "remove"]);
-			$router->get('/mail-form', ["Controllers\ProductController", "mailForm"]);
-			$router->post('/mail-form', ["Controllers\ProductController", "sendEmail"]);
-		});
+		
 
 		$dispatcher = new Dispatcher($router->getData());
 

@@ -6,10 +6,11 @@ use Models\Product;
 class ProductController extends BaseController
 {
 	
-	function remove($id)
+	function remove()
 	{
+		$id = $_GET['id'];
 		Product::destroy($id);
-		header('location: http://localhost/pt14111/mvc');
+		header('location: http://localhost/mvc_v2');
 		return false;
 	}
 	function addForm()
